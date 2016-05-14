@@ -12,7 +12,6 @@ setup(
     description='It is simple module package for ROK Public Data OpenAPI.',
     classifiers=[
         'Programming Language :: Python',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.5.1'
+        'Programming Language :: Python :: 3.5'
     ]
 )
