@@ -1,4 +1,4 @@
-.. image:: https://s3.ap-northeast-2.amazonaws.com/github-pypubdata/pypubdata_logo_160514.png
+.. image:: https://gom2.net/blog/wp-content/uploads/2016/05/pypubdata_logo_160514.png
     :align: center
     :alt: pypubdata Logo image
 
