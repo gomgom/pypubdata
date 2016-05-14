@@ -3,5 +3,3 @@
 /.idea/tasks.xml
 # Ignore __pycache__
 __pycache__/
-# Ignore dist
-/dist/
