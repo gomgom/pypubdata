@@ -2,7 +2,7 @@
     :align: center
     :alt: pypubdata Logo image
 
-**pypubdata: 대한민국 공공데이터 OpenAPI가 Python 3로 포팅된 파이썬 OpenAPI 활용 모듈**
+**pypubdata: 대한민국 공공데이터 OpenAPI가 Python 3로 포팅된 파이썬 OpenAPI 활용 모듈 라이브러리**
 
 .. image:: https://img.shields.io/pypi/l/pypubdata.svg?maxAge=2592000
     :target: http://www.gnu.org/licenses/lgpl-3.0.html
@@ -43,12 +43,12 @@ lGPL v3에 관한 자세한 정보는 GNU.org를 참고하여 주십시오.
 
 
 ======================================
-국가대기오염정보 OpenAPI 모듈 사용법
+국가대기오염정보 OpenAPI 모듈 사용법 (pdairp)
 ======================================
 
 *(ver 0.1.1 기준, c한국환경공단, c환경부)*
 
-'airp' 모듈을 통해 현재 지원하고 있는 서비스는 '측정소정보 조회 서비스'와 '대기오염정보조회 서비스'입니다.
+'pdairp' 모듈을 통해 현재 지원하고 있는 서비스는 '측정소정보 조회 서비스'와 '대기오염정보조회 서비스'입니다.
 
 모든 데이터는 공공데이터포털에서 제공하는 'IROS3_OA_DV_0701_OpenAPI활용가이드_한국환경공단_국가대기오염정보_v1.3.docx'에 기재되어 있는 결과값을 받아오도록 기본 구조가 형성되어있습니다.
 
@@ -58,16 +58,16 @@ lGPL v3에 관한 자세한 정보는 GNU.org를 참고하여 주십시오.
 개요
 ------------------
 
-사용을 위해서는 먼저 pypubdata 패키지에서 airp(국가대기오염정보 모듈)을 import합니다.
+사용을 위해서는 먼저 pypubdata 패키지에서 pdairp(국가대기오염정보 모듈)을 import합니다.
 
-그 이후, airp에서 이용하고자 하는 서비스를 찾으신 뒤, 공공데이터포털에서 지급받으신 비밀키(utf-8 엑세스 키)를 입력해 인스턴스를 초기화 해 줍니다.
+그 이후, pdairp에서 이용하고자 하는 서비스를 찾으신 뒤, 공공데이터포털에서 지급받으신 비밀키(utf-8 엑세스 키)를 입력해 인스턴스를 초기화 해 줍니다.
 
 .. code:: python
 
-  >>> from pypubdata import airp
-  >>> a = airp.PollutionInfo("ACCESS_KEY")
+  >>> import pdairp
+  >>> a = pdairp.PollutionInfo("ACCESS_KEY")
 
-airp 모듈을 초기화 다양한 기능을 하는 메소드를 불러와서 사용하시면 됩니다.
+pdairp 모듈을 초기화 다양한 기능을 하는 메소드를 불러와서 사용하시면 됩니다.
 
 .. code:: python
 
