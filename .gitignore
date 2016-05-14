@@ -1,0 +1,5 @@
+# For IntelliJ Project
+/.idea/workspace.xml
+/.idea/tasks.xml
+# Ignore __pycache__
+__pycache__/
