@@ -1,15 +1,19 @@
 .. image:: https://gom2.net/blog/wp-content/uploads/2016/05/pypubdata_logo_160514.png
+    :target: https://github.com/gom2dev/pypubdata
     :align: center
     :alt: pypubdata Logo image
 
 **pypubdata: 대한민국 공공데이터 OpenAPI가 Python 3로 포팅된 파이썬 OpenAPI 활용 모듈 라이브러리**
 
 .. image:: https://img.shields.io/pypi/l/pypubdata.svg?maxAge=2592000
-    :target: http://www.gnu.org/licenses/lgpl-3.0.html
-    :alt: license - lGPL v3
+     :target: http://www.gnu.org/licenses/lgpl-3.0.html
+     :alt: license - lGPL v3
 .. image:: https://img.shields.io/pypi/v/pypubdata.svg?maxAge=2592000
-   :target: https://github.com/gom2dev/pypubdata
-   :alt: pypi version - check Github
+    :target: https://github.com/gom2dev/pypubdata
+    :alt: pypi version - check Github
+.. image:: https://img.shields.io/pypi/pyversions/pypubdata.svg?maxAge=2592000
+    :target: https://github.com/gom2dev/pypubdata
+    :alt: support python verson - upper 3.5
 
 
 ===============
@@ -33,12 +37,12 @@ OpenAPI를 포팅하기 위한 모듈 소스 코드는 모두 GNU 약소 일반 
 
 lGPL v3에 관한 자세한 정보는 GNU.org를 참고하여 주십시오.
 
+ⓒ 본 라이브러리 내 개인적으로 쓰여진 코드는 lGPL v3 라이센스에 준거하여 공개합니다.
+
 ⓒ 모든 데이터의 저작권 및 OpenAPI 접근에 관한 방법에 대한 방법 일체에 대해서는 공공데이터포털 저작권을 따릅니다.
 
-ⓒ 기타 개인적으로 쓰여진 코드는 lGPL v3 라이센스에 준거하여 공개합니다.
-
-ⓒ Copyright of every data and OpenAPI of Republic of Korea Public Data Portal and OpenAPI are under their own license.
 ⓒ Copyright of pypubdata's code is under the lGPL v3 license.
+ⓒ Copyright of every data and OpenAPI of Republic of Korea Public Data Portal and OpenAPI are under their own license.
 ⓒ The Python logo is a trademark of the PSF
 
 
@@ -61,6 +65,11 @@ lGPL v3에 관한 자세한 정보는 GNU.org를 참고하여 주십시오.
 사용을 위해서는 먼저 pypubdata 패키지에서 pdairp(국가대기오염정보 모듈)을 import합니다.
 
 그 이후, pdairp에서 이용하고자 하는 서비스를 찾으신 뒤, 공공데이터포털에서 지급받으신 비밀키(utf-8 엑세스 키)를 입력해 인스턴스를 초기화 해 줍니다.
+
+.. code:: bash
+
+  For Windows: C:\Users\sample> pip install pypubdata
+  For Linux/Unix: sample@ip-123-12-3-45:~$ sudo pip3 install pypubdata
 
 .. code:: python
 
