@@ -3,3 +3,7 @@
 /.idea/tasks.xml
 # Ignore __pycache__
 __pycache__/
+# Ignore build, dist
+/dist/*
+/build/*
+/pypubdata.egg-info/*
