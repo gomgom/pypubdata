@@ -4,6 +4,13 @@
 
 **pypubdata: 대한민국 공공데이터 OpenAPI가 Python 3로 포팅된 파이썬 OpenAPI 활용 모듈**
 
+.. image:: https://img.shields.io/pypi/l/pypubdata.svg?maxAge=2592000
+    :target: http://www.gnu.org/licenses/lgpl-3.0.html
+    :alt: license - lGPL v3
+.. image:: https://img.shields.io/pypi/v/pypubdata.svg?maxAge=2592000
+   :target: https://github.com/gom2dev/pypubdata
+   :alt: pypi version - check Github
+
 
 ===============
 들어가며
