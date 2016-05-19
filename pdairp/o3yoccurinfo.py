@@ -8,7 +8,7 @@ class O3YOccurInfo(object):
         self._service_key = str(imported_key)
         self._mainurl = 'http://openapi.airkorea.or.kr/openapi/services/rest/OzYlwsndOccrrncInforInqireSvc/'
 
-    def o3occur(self, year, page_no='1', num_of_rows='10'):
+    def o3(self, year, page_no='1', num_of_rows='10'):
         urllist = [
             self._mainurl + 'getOzAdvsryOccrrncInfo?', 'year=', year, '&pageNo=', page_no,
             '&numOfRows=', num_of_rows, '&ServiceKey=', self._service_key, '&_returnType=json'
@@ -32,7 +32,7 @@ class O3YOccurInfo(object):
 
         return returndata
 
-    def yellowoccur(self, year, page_no='1', num_of_rows='10'):
+    def yellow(self, year, page_no='1', num_of_rows='10'):
         urllist = [
             self._mainurl + 'getYlwsndAdvsryOccrrncInfo?', 'year=', year, '&pageNo=', page_no,
             '&numOfRows=', num_of_rows, '&ServiceKey=', self._service_key, '&_returnType=json'

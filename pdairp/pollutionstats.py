@@ -8,7 +8,7 @@ class PollutionStats(object):
         self._service_key = str(imported_key)
         self._mainurl = 'http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnStatsSvc/'
 
-    def stationstats(self, station_name, searchCondition, page_no='1', num_of_rows='10'):
+    def station(self, station_name, searchCondition, page_no='1', num_of_rows='10'):
         urllist = [
             self._mainurl + 'getMsrstnAcctoLastDcsnDnsty?', 'stationName=', urllib.parse.quote(station_name),
             "&searchCondition=", searchCondition, '&pageNo=', page_no, '&numOfRows=', num_of_rows,
@@ -33,7 +33,7 @@ class PollutionStats(object):
 
         return returndata
 
-    def periodstats(self, searchDataTime, statArticleCondition, page_no='1', num_of_rows='10'):
+    def period(self, searchDataTime, statArticleCondition, page_no='1', num_of_rows='10'):
         urllist = [
             self._mainurl + 'getDatePollutnStatInfo?', 'searchDataTime=', searchDataTime,
             "&statArticleCondition=", urllib.parse.quote(statArticleCondition), '&pageNo=', page_no,
