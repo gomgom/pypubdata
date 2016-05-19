@@ -8,12 +8,12 @@
 .. image:: https://img.shields.io/pypi/l/pypubdata.svg?maxAge=2592000
      :target: http://www.gnu.org/licenses/lgpl-3.0.html
      :alt: license - lGPL v3
-.. image:: https://img.shields.io/pypi/v/pypubdata.svg?maxAge=2592000
-    :target: https://github.com/gom2dev/pypubdata
-    :alt: pypi version - check Github
 .. image:: https://img.shields.io/pypi/pyversions/pypubdata.svg?maxAge=2592000
     :target: https://github.com/gom2dev/pypubdata
     :alt: support python verson - upper 3.5
+.. image:: https://img.shields.io/pypi/v/pypubdata.svg?maxAge=2592000
+    :target: https://github.com/gom2dev/pypubdata
+    :alt: pypi version - check Github
 
 
 ===============
@@ -24,7 +24,7 @@
 
 개인적으로 개발하며 사용하기 위해 만든 간단한 국가대기오염정보 OpenAPI 처리 모듈을, 부끄럽지만 많이 손봐서 내놓습니다.
 
-현재까지는 한국환경공단의 **국가대기오염정보**를 **부분적**으로 지원하고 있습니다.
+현재까지는 한국환경공단의 **국가대기오염정보의 HTTP -> 파이썬 딕셔너리 포팅**을 지원하고 있습니다.
 
 시간 날 때마다 조금씩 조금씩 손봐서 좀 더 다양한 OpenAPI를 지원할 수 있는 모듈 패키지가 되었으면 좋겠습니다.
 
@@ -50,9 +50,9 @@ lGPL v3에 관한 자세한 정보는 GNU.org를 참고하여 주십시오.
 국가대기오염정보 OpenAPI 모듈 사용법 (pdairp)
 ======================================
 
-*(ver 0.1.2 기준, c한국환경공단, c환경부)*
+*(ver 0.1.3 기준, c한국환경공단, c환경부)*
 
-'pdairp' 모듈을 통해 현재 지원하고 있는 서비스는 '측정소정보 조회 서비스'와 '대기오염정보조회 서비스'입니다.
+'pdairp' 모듈을 통해 현재 지원하고 있는 서비스는 '측정소정보 조회 서비스', '대기오염정보조회 서비스', '대기오염통계 서비스', '오존황사 발생정보조회' 입니다.
 
 모든 데이터는 공공데이터포털에서 제공하는 'IROS3_OA_DV_0701_OpenAPI활용가이드_한국환경공단_국가대기오염정보_v1.3.docx'에 기재되어 있는 결과값을 받아오도록 기본 구조가 형성되어있습니다.
 
@@ -74,13 +74,13 @@ lGPL v3에 관한 자세한 정보는 GNU.org를 참고하여 주십시오.
 .. code:: python
 
   >>> import pdairp
-  >>> a = pdairp.PollutionInfo("ACCESS_KEY")
+  >>> a = pdairp.PollutionData("ACCESS_KEY")
 
-pdairp 모듈을 초기화 다양한 기능을 하는 메소드를 불러와서 사용하시면 됩니다.
+pdairp 모듈을 초기화 한 인스턴스(예제의 a)를 활용하여, 다양한 기능을 하는 메소드를 불러와서 사용하시면 됩니다.
 
 .. code:: python
 
-  >>> print(a.stationdata("문창동", "DAILY"))
+  >>> print(a.station("문창동", "DAILY"))
   {'totalCount': 23, '9': {'pm10Value24': '23', 'pm25Value': '-', ...
 
 모든 데이터는 파이썬 딕셔너리(Dictionary) 구조로 반환되며, 키 값의 구조는 다음과 같습니다.
@@ -91,10 +91,10 @@ pdairp 모듈을 초기화 다양한 기능을 하는 메소드를 불러와서 
 
 .. code:: python
 
-  >> pm10 = a.stationdata("문창동", "DAILY")['0']['pm10Value']
+  >> pm10 = a.station("문창동", "DAILY")['0']['pm10Value']
   >> print(pm10)
 
-아래 서비스 목록에는 서비스 목록과 결과값만 간단하게 기재해 두었으므로, 자세한 정보는 OpenAPI 신청 시 동봉되어 있는 워드문서를 참고해 주세요.
+아래 서비스 목록에는 서비스 목록과 결과값만 간단하게 기재해 두었으므로, 클래스 및 변수값 등에 대한 자세한 정보는 OpenAPI 신청 시 동봉되어 있는 워드문서를 참고해 주세요.
 
 ----------------------------------
 측정소정보 조회 서비스 (StationInfo 클래스)
@@ -166,14 +166,14 @@ tmY              읍면동의 tm_Y 좌표
 
 
 ----------------------------------
-대기오염정보조회 서비스 (PollutionInfo 클래스)
+대기오염정보조회 서비스 (PollutionData 클래스)
 ----------------------------------
 
-- **측정소별 실시간 측정정보조회 (stationdata)**
+- **측정소별 실시간 측정정보조회 (station)**
 
 .. code:: python
 
-  >> PollutionInfo.stationdata(station_name, data_term, page_no='1', num_of_rows='10', ver='1.2')
+  >> PollutionData.station(station_name, data_term, page_no='1', num_of_rows='10', ver='1.2')
 
 *측정소 이름*과 *요청 데이터 기간*를 받아 데이터 기간 동안의 측정정보를 제공합니다.
 
@@ -206,7 +206,7 @@ pm25Value24      PM2.5 24시간 예측농도
 
 .. code:: python
 
-  >> PollutionInfo.strangelist(page_no='1', num_of_rows='10')
+  >> PollutionData.strangelist(page_no='1', num_of_rows='10')
 
 현재 통합대기환경지수가 나쁨 이상으로 이상한 측정소의 목록을 조회해줍니다.
 
@@ -219,11 +219,11 @@ addr             측정소 주소
 stationName      측정소 이름
 =============    ================
 
-- **시도별 실시간 측정정보조회 (sidodata)**
+- **시도별 실시간 측정정보조회 (sido)**
 
 .. code:: python
 
-  >> PollutionInfo.sidodata(sido_name, page_no='1', num_of_rows='10', ver='1.2')
+  >> PollutionData.sido(sido_name, page_no='1', num_of_rows='10', ver='1.2')
 
 *광역자치단체(시, 도)* 이름을 받아 광역자치단체 대표 시군구에 위치한 측정소 측정정보를 제공합니다.
 
@@ -257,7 +257,7 @@ pm25Value24      PM2.5 24시간 예측농도
 
 .. code:: python
 
-  >> PollutionInfo.forecastlist(inform_code, search_date='0', page_no='1', num_of_rows='10')
+  >> PollutionData.forecastlist(inform_code, search_date='0', page_no='1', num_of_rows='10')
 
 *조회코드(PM10, PM25, O3)*와 *조회날짜(예: 2016-05-14)*를 받아 그 시각 예보가 있는 곳을 확인해줍니다.
 
@@ -279,6 +279,113 @@ informGrade      예보등급
 informOverall    예보개황
 actionKnack      행동요령 (필요시)
 =============    ================
+
+
+
+----------------------------------
+대기오염통계 서비스 (PollutionStats 클래스)
+----------------------------------
+
+- **측정소별 최종확정 농도 조회(station)**
+
+.. code:: python
+
+  >> PollutionStats.station(station_name, searchCondition, page_no='1', num_of_rows='10')
+
+*측정소 이름*과 *연별/월별/일별(YEAR/MONTH/DAILY)* 조건을 제공 받아 측정 시작일로부터 모든 통계치를 조회합니다.
+
+결과로는 다음과 같은 값을 활용할 수 있습니다.
+
+=============    ================
+항목명(영문)          항목명(국문)
+=============    ================
+dataTime           측정일
+so2Avg             아황산가스 농도 평균
+coAvg              일산화탄소 농도 평균
+o3Avg              오존 농도
+no2Avg             이산화질소 농도
+pm10Avg            미세먼지 농도
+=============    ================
+
+- **기간별 오염통계 조회 (period)**
+
+.. code:: python
+
+  >> PollutionStats.period(searchDataTime, statArticleCondition, page_no='1', num_of_rows='10')
+
+*검색 월(예: 2008-01)*과 *측정망정보(예: "도시대기")*를 입력받아 월 통계 자료를 조회합니다.
+
+결과로는 다음과 같은 값을 활용할 수 있습니다.
+
+=============    ================
+항목명(영문)          항목명(국문)
+=============    ================
+dataTime         측정일
+sidoName         시도이름 (지자체명)
+so2Avg           아황산가스 농도 평균
+coAvg            일산화탄소 농도 평균
+o3Avg            오존 농도 평균
+no2Avg           이산화질소 농도 평균
+pm10Avg          미세먼지(PM10) 농도 평균
+so2Max           아황산가스 농도 최대값
+coMax            일산화탄소 농도 최대값
+o3Max            오존 농도 최대값
+no2Max           이산화질소 농도 최대값
+pm10Max          미세먼지 농도 최대값
+so2Min           아황산가스 농도 최소값
+coMin            일산화탄소 농도 최소값
+o3Min            오존 농도 최소값
+no2Min           이산화질소 농도 최소값
+pm10Min          미세먼지 농도 최소값
+=============    ================
+
+
+
+----------------------------------
+오존황사 발생정보조회 (O3YOccurInfo 클래스)
+----------------------------------
+
+- **오존주의보 발생정보 조회(o3)**
+
+.. code:: python
+
+  >> O3YOccurInfo.o3(year, page_no='1', num_of_rows='10')
+
+*조회 연도*를 제공받아 특정 연도의 오존주의보 발생정보를 조회합니다.
+
+결과로는 다음과 같은 값을 활용할 수 있습니다.
+
+=============    ================
+항목명(영문)          항목명(국문)
+=============    ================
+dataTime         측정일
+districtName     발령 지역 이름
+moveName         발령 권역 이름
+issueTime        발령 시각
+issueVal         발령 시 오존 농도
+clearTime        해제 시각
+clearVal         해제 시 오존 농도
+MaxVal           오존 최고 농도
+=============    ================
+
+- **황사주의보 발생정보 조회(yellow)**
+
+.. code:: python
+
+  >> O3YOccurInfo.yellow(year, page_no='1', num_of_rows='10')
+
+*조회 연도*를 제공받아 특정 연도의 황사주의보 발생정보를 조회합니다.
+
+결과로는 다음과 같은 값을 활용할 수 있습니다.
+
+=============    ================
+항목명(영문)          항목명(국문)
+=============    ================
+dataTime         측정일
+tmCnt            발령 회차
+tmArea           주의보 발령 지역
+=============    ================
+
 
 
 ======================================
