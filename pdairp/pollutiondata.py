@@ -3,12 +3,12 @@ import urllib.parse
 import urllib.request
 
 
-class PollutionInfo(object):
+class PollutionData(object):
     def __init__(self, imported_key):
         self._service_key = str(imported_key)
         self._mainurl = 'http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/'
 
-    def stationdata(self, station_name, data_term, page_no='1', num_of_rows='10', ver='1.2'):
+    def station(self, station_name, data_term, page_no='1', num_of_rows='10', ver='1.2'):
         verurl = '&ver=' + ver
         # It's for changing version, It seems like version system doesn't work on OpenAPI, so I comment them.
         # verurl = '&ver='
@@ -64,7 +64,7 @@ class PollutionInfo(object):
 
         return returndata
 
-    def sidodata(self, sido_name, page_no='1', num_of_rows='10', ver='1.2'):
+    def sido(self, sido_name, page_no='1', num_of_rows='10', ver='1.2'):
         verurl = '&ver=' + ver
         # It's for changing version, It seems like version system doesn't work on OpenAPI, so I comment them.
         # verurl = '&ver='
