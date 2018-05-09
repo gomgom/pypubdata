@@ -1,5 +1,5 @@
-.. image:: https://gom2.net/blog/wp-content/uploads/2016/05/pypubdata_logo_160514.png
-    :target: https://github.com/gom2dev/pypubdata
+.. image:: https://blog.gomgom.io/blog/wp-content/uploads/2016/05/pypubdata_logo_160514.png
+    :target: https://github.com/gomgomdev/pypubdata
     :align: center
     :alt: pypubdata Logo image
 
@@ -394,7 +394,7 @@ tmArea           주의보 발령 지역
 
 아직 준비하지 못했습니다. 현재까지 개발된 모듈은 Github 내 pypubdata 저장소의 README.rst를 참조해 주시기 바랍니다.
 
-(https://github.com/gom2dev/pypubdata)
+(https://github.com/gomgomdev/pypubdata)
 
 
 ======================================
@@ -405,4 +405,4 @@ Github 저장소 내 Issues에서 각종 버그와 기타 문의를 추적하고
 
 프로그래밍이 본업이 아닌 쌩초보 개발자이므로 살살 다뤄주세요... (^^;)
 
-(https://github.com/gom2dev/pypubdata)
+(https://github.com/gomgomdev/pypubdata)

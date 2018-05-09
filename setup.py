@@ -7,8 +7,8 @@ setup(
     url='https://github.com/gom2dev/pypubdata',
     download_url='https://github.com/gom2dev/pypubdata/archive/master.zip',
     license='lGPLv3',
-    author='gom2dev',
-    author_email='contact@gom2.net',
+    author='Gomgom',
+    author_email='dev@gomgom.io',
     description='It is simple module package for ROK Public Data OpenAPI.',
     classifiers=[
         'Programming Language :: Python',
