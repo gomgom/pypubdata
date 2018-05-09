@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='pypubdata',
-    version='0.1.3',
+    version='0.1.4',
     packages=find_packages(),
     url='https://github.com/gomgomdev/pypubdata',
     download_url='https://github.com/gomgomdev/pypubdata/archive/master.zip',
