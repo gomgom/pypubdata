@@ -9,10 +9,10 @@
      :target: http://www.gnu.org/licenses/lgpl-3.0.html
      :alt: license - lGPL v3
 .. image:: https://img.shields.io/pypi/pyversions/pypubdata.svg?maxAge=2592000
-    :target: https://github.com/gom2dev/pypubdata
+    :target: https://github.com/gomgomdev/pypubdata
     :alt: support python verson - upper 3.5
 .. image:: https://img.shields.io/pypi/v/pypubdata.svg?maxAge=2592000
-    :target: https://github.com/gom2dev/pypubdata
+    :target: https://github.com/gomgomdev/pypubdata
     :alt: pypi version - check Github
 
 
